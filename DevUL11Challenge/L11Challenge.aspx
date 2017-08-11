@@ -12,7 +12,7 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="~ PART 1 ~" />
             <br />
             <br />
-            <asp:Button ID="Button2" runat="server" Text="~ PART 2 ~" />
+            <asp:Button ID="Button2" runat="server" Text="~ PART 2 ~" OnClick="Button2_Click" />
             <br />
             <br />
             <asp:Button ID="Button3" runat="server" Text="~ PART 3 ~" />

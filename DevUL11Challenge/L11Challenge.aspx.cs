@@ -16,21 +16,6 @@ namespace DevUL11Challenge
 
 		}
 
-		public class Course
-		{
-			public string name { get; set; }
-			public string[] students { get; set; }
-			public string description { get; set; }
-
-			// public string student { get; set; }
-		}
-		public class Student
-		{
-			public int StudentId { get; set; }
-			public string name { get; set; }
-			public List<Course> Courses { get; set; }
-		}
-
 		protected void Button1_Click(object sender, EventArgs e)
 		{
 			/*
@@ -47,13 +32,47 @@ namespace DevUL11Challenge
 					new Student(){StudentId=1, name="bo peep")}
 			}
 			*/
-		}	
-	}
+			List<Course> courses = new List<Course>(){
+				new Course()
+					{ CourseId =1, Name="Dream Interpretation", Students=new List<Student>()
+						{
+						new Student(){ StudentId=1, Name="Bo Peep" },
+						new Student(){ StudentId=2, Name="Curious George"}
+						}
+					},
+				new Course() { CourseId =2, Name="Day Dreaming", Students=new List<Student>() {
+					new Student(){ StudentId=3, Name="Bob Peep" },
+					new Student(){ StudentId=4, Name="Curiously George"} } },
 
-			listOfCourses.Add(course1);
-			foreach (Course course in listOfCourses)
+				new Course(){
+					CourseId =3, Name="Lucid Dreaming", Students=new List<Student>(){
+						new Student(){
+							StudentId =5, Name="Bobby Peep"
+						},
+						new Student(){
+							StudentId =6, Name="Intrigued George"
+						}
+					}
+				}
+			};
+
+			foreach ( var course in courses )
 			{
-				resultLabel.Text += course.FormatDetailsForDisplay();
-
+				resultLabel.Text += String.Format("<br/>{0}-{1}", course.CourseId, course.Name);
+				
+				foreach (var student in course.Students)
+				{
+					resultLabel.Text += String.Format("<br/>&nbsp;&nbsp;Student:{0} - {1} ", student.StudentId, student.Name);
+				}
+				
 			}
+		}
+
+		
+
+		protected void Button2_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
